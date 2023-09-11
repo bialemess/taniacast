@@ -13,9 +13,7 @@ class AlunoRepository {
   set listaAlunos(value) => _listaAlunos = value;
 
   //métodos
-  void adicionarPet(Aluno aluno) {
+  void adicionarAluno(Aluno aluno) {
     _listaAlunos.add(aluno);
   }
-
-  static void adicionarAluno(Aluno aluno) {}
 }

@@ -21,6 +21,8 @@ class _CadastroPageState extends State<CadastroPage> {
 
   @override
   Widget build(BuildContext context) {
+    AlunoRepository alrepo = AlunoRepository();
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
@@ -110,7 +112,7 @@ class _CadastroPageState extends State<CadastroPage> {
                       nome: nome,
                       sobrenome: sobrenome,
                     );
-                    AlunoRepository.adicionarAluno(aluno);
+                    alrepo.adicionarAluno(aluno);
 
                     limparCampos();
                     mostrarSucesso();

@@ -20,24 +20,30 @@ class _ListaAlunosPageState extends State<ListaAlunosPage> {
           title: const Text("Alunos Cadastrados"),
           centerTitle: true,
         ),
-        body: ListView.separated(
-            itemCount: listaAlunos.length,
-            separatorBuilder: ((context, index) => const Divider(
-                  thickness: 2,
-                )),
-            itemBuilder: ((context, int index) {
-              return ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: Theme.of(context).primaryColor,
-                  child: Text(listaAlunos[index].nome[0]),
-                ),
-                title: Text(listaAlunos[index].nome),
-                subtitle: Text(listaAlunos[index].ra),
-                trailing: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.delete),
-                ),
-              );
-            })));
+        body: Column(
+          children: [
+            ListView.separated(
+              shrinkWrap: true,
+                itemCount: listaAlunos.length,
+                separatorBuilder: ((context, index) => const Divider(
+                      thickness: 2,
+                    )),
+                itemBuilder: ((context, int index) {
+                  return ListTile(
+                    leading: CircleAvatar(
+                      backgroundColor: Theme.of(context).primaryColor,
+                      child: Text(listaAlunos[index].nome[0]),
+                    ),
+                    title: Text(listaAlunos[index].nome),
+                    subtitle: Text(listaAlunos[index].sobrenome),
+                    trailing: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.delete),
+                    ),
+                  );
+                })),
+                Text("ola"),
+          ],
+        ));
   }
 }
