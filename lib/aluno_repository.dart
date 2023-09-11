@@ -3,9 +3,9 @@ import 'package:taniacast/aluno.dart';
 
 class AlunoRepository {
   static List<Aluno> _listaAlunos = [
-    Aluno(nome: "Dorinha", ra: 234),
-    Aluno(nome: "Bolinha", ra: 233),
-    Aluno(nome: "Pipoca", ra: 455),
+    Aluno(nome: "lucas", sobrenome: "costa"),
+    Aluno(nome: "tania", sobrenome: "basso"),
+    Aluno(nome: "priscila", sobrenome: "ferraz"),
   ];
 
   //getters e setters

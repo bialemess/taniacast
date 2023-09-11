@@ -1,12 +1,12 @@
 class Aluno {
   String nome;
-  int ra;
+  String sobrenome;
 
-  int get getRa => ra;
-  set setRa(int ra) => this.ra = ra;
+  String get getSobrenome => sobrenome;
+  set setSobrenome(String  sobrenome) => this.sobrenome = sobrenome;
 
   String get getNome => nome;
   set setNome(String nome) => this.nome = nome;
 
-  Aluno({required this.nome, required this.ra});
+  Aluno({required this.nome, required this.sobrenome});
 }

@@ -11,13 +11,13 @@ class CadastroPage extends StatefulWidget {
 }
 
 class _CadastroPageState extends State<CadastroPage> {
-  final AlunoRepository _petRepository = AlunoRepository();
+  final AlunoRepository alunoRepository = AlunoRepository();
 
   final TextEditingController _nomeController = TextEditingController();
-  final TextEditingController _cuidadorController = TextEditingController();
+  final TextEditingController _sobrenomeController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   
-  get ra => null;
+
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class _CadastroPageState extends State<CadastroPage> {
               //imagem
               Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: Icon(Icons.pets, size: 100, color: Theme.of(context).primaryColor,)),
+                  child: Icon(Icons.person, size: 100, color: Theme.of(context).primaryColor,)),
 
               //cadastro
               Padding(
@@ -75,10 +75,10 @@ class _CadastroPageState extends State<CadastroPage> {
                           height: 12,
                         ),
                         TextFormField(
-                          controller: _cuidadorController,
+                          controller: _sobrenomeController,
                           decoration: const InputDecoration(
-                            labelText: "ra",
-                            hintText: "Digite o ra",
+                            labelText: "sobrenome",
+                            hintText: "Digite o sobrenome do aluno",
                             hintStyle: TextStyle(color: Colors.grey),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.all(
@@ -88,7 +88,7 @@ class _CadastroPageState extends State<CadastroPage> {
                           ),
                           validator: (value) {
                             if (value!.isEmpty) {
-                              return "Digite o  ra!";
+                              return "Digite o  sobrenome!";
                             }
                             return null;
                           },
@@ -104,10 +104,13 @@ class _CadastroPageState extends State<CadastroPage> {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     String nome = _nomeController.text;
-                    String cuidador = _cuidadorController.text;
+                     String sobrenome = _sobrenomeController.text;
 
-                    Aluno aluno = Aluno(nome: nome, ra: ra);
-                    _petRepository.adicionarPet(aluno);
+                    Aluno aluno = Aluno(
+                      nome: nome,
+                      sobrenome: sobrenome,
+                    );
+                    AlunoRepository.adicionarAluno(aluno);
 
                     limparCampos();
                     mostrarSucesso();
@@ -129,6 +132,6 @@ class _CadastroPageState extends State<CadastroPage> {
 
   void limparCampos() {
     _nomeController.clear();
-    _cuidadorController.clear();
+    _sobrenomeController.clear();
   }
 }
